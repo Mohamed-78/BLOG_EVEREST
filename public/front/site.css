@@ -1,0 +1,80 @@
+.myBackground{
+	background-image: url(images/background2.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+.sectionTitle{
+	text-align:center;
+	padding-top:3em;
+	color: white;
+}
+
+.sectionTitle_five{
+	text-align: center;
+	padding-bottom: 4em;
+	color: white;
+}
+
+.help-block {
+    color: red;
+    font-weight: bold;
+}
+
+.section-index{
+	padding-top: 5em;
+	padding-bottom: 8em;
+}
+
+.single{
+	padding-top: 3em;
+}
+
+.title_three{
+	text-align: center;
+	padding-bottom:0.5em;
+}
+
+.justifyText{
+	text-align: justify;
+	padding-top: 1em;
+}
+
+.footer{
+	background-color: #0b0d26;
+	padding-bottom:3.5em;
+}
+
+.footerTitle{
+	text-align: center;
+	padding-top: 2em;
+}
+
+.commentaire{
+	padding-bottom:5em;
+}
+
+.form{
+	padding-top: 1.5em;
+	padding-bottom:2.5em;
+}
+
+.singleTite{
+	text-align: center;
+	padding-bottom: 1.5em
+}
+
+.singleParagraphe{
+	text-align: justify;
+	padding-top: 2em;
+}
+
+.btn-blog{
+	background-color: #0b0d26 !important;
+	border-radius: 0px !important;
+}
+
+.inputGroup{
+	padding-bottom: 2em;
+	padding-top: 3em;
+}
