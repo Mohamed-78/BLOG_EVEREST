@@ -51,6 +51,6 @@
 			@else
 			<h3 style="color: red;">Aucun commentaire pour cet post</h3>
 			@endif
-			{{-- <p>{{ $commentaires->links() }}</p> --}}
+			<p class="pb">{{ $commentaires->links() }}</p>
 	</div>
 @endsection

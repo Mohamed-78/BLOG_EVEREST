@@ -105,4 +105,24 @@ class HomeController extends Controller
         return redirect()->back();
     }
 
+    public function listCommentaire()
+    {
+        $commentaires = Comment::orderBy('id','desc')->paginate(12);
+        return view('admin.commentaire',compact('commentaires'));
+    }
+
+    public function voirCommentaire($id)
+    {
+        $single = Comment::find($id);
+        return view('admin.Update.commentaire',compact('single'));
+    }
+
+    public function deleteCommentaire($id)
+    {
+        $commentaire = Comment::find($id);
+        $commentaire->delete();
+        session()->flash('message','Operation effectuée avec succès');
+        return redirect()->back();
+    }
+
 }

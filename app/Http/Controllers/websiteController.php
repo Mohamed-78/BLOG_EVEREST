@@ -11,6 +11,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\FormsRequest;
 
 class websiteController extends Controller
 {
@@ -24,32 +25,24 @@ class websiteController extends Controller
     public function detail_annonce($id)
     {
       $single = Post::find($id);
-      $commentaires = Comment::select()->where('user_id', $single)->orderBy('id','desc')->get();
-      //dd($id);
+      $commentaires = Comment::where('post_id',$id)->orderBy('id','desc')->paginate(6);
+      //dd($commentaires);
       return view('front.detail_annonce',compact('commentaires','single'));
     }
 
-    public function inscription($id)
-    {
-      $single = Post::find($id);
-      return view('front.partials.inscription',compact('single'));
-    }
-
-    public function saveUser(Request $request,$id)
+    public function commentaire(FormsRequest $request, $id)
     {
       $single = Post::find($id);
 
-      $utilisateur = new User();
-      $utilisateur->name = $request->name;
-      $utilisateur->email = $request->email;
-      $utilisateur->type = "fan_blog";
-      $utilisateur->etat = 'Activé';
-      $utilisateur->password = Hash::make($request->password);
-      $retour = $utilisateur->save();
-
-      Flashy::message('Inscription effectué avec succès');
-      return redirect()->route('front.detail_annonce',compact('$single')); 
+      $commentaire = new Comment();
+      $commentaire->name = $request->name;
+      $commentaire->first_name = $request->first_name;
+      $commentaire->content = $request->content; 
+      $commentaire->post_id = $single->id;
+      $retour = $commentaire->save();
+      
+      Flashy::message('Commentaire effectuée avec succès');
+      return redirect()->back();
     }
-
     
 }
