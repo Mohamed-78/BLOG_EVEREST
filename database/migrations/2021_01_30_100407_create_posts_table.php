@@ -18,7 +18,6 @@ class CreatePostsTable extends Migration
             $table->string('title');
             $table->string('picture');
             $table->longText('description');
-            $table->integer('comment_id');
             $table->timestamps();
         });
     }

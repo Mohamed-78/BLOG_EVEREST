@@ -9,15 +9,15 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card">
-					<img src="front/images/p3.jpg">
+					<img src="{{asset('admin/media/'.$single->picture)}}">
 				</div>
 				<p class="singleParagraphe">{{ $single->description }}</p>
 
 				<a href="/" class="btn btn-blog" style="color: white;">RETOUR</a>
 			</div>
 		</div>
-			<form action="/publier_commentaire/{{ $single->id}}" method="POST" class="form" >		
-				{{ csrf_field() }}
+			<form action="{{ route('commenter',$single->id) }}" method="post" class="form">	
+				@csrf
 				<div class="row">
 					<div class="col-md-6 {{ $errors->has('name') ? 'has->error' : '' }}" style="padding-bottom: 2em;padding-top: 3em;">
 						{!! $errors->first('name','<span class="help-block">:message</span>') !!}
@@ -51,6 +51,6 @@
 			@else
 			<h3 style="color: red;">Aucun commentaire pour cet post</h3>
 			@endif
-			<p>{{ $commentaires->links() }}</p>
+			{{-- <p>{{ $commentaires->links() }}</p> --}}
 	</div>
 @endsection

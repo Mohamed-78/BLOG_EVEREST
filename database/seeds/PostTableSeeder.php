@@ -12,7 +12,6 @@ class PostTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Post::class,12)->create();
+        factory(Post::class,6)->create();
     }
 }
-

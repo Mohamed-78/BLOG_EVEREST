@@ -49,17 +49,11 @@
           <div class="col-lg-12 text-center">
             <button type="submit" class="btn btn-block btn-dark">CONNEXION</button>
           </div>
-                                <!-- <div class="col-lg-6 text-center">
-                                    <a href="" class="btn btn-block btn-dark">S'INSCRIRE</a>
-                                  </div> -->
-                                {{-- <div class="col-lg-12 text-center mt-5">
-                                    CABINET KATANA
-                                  </div> --}}
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    @endsection
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+@endsection

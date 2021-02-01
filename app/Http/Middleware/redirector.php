@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use MercurySeries\Flashy\Flashy;
 
 class redirector
 {
@@ -16,17 +17,15 @@ class redirector
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::user()->type === "User") {
-            if (Auth::user()->etat === "Activé") {
-                return redirect()->route('accueil');
+        if (Auth::User()->type === "fan_blog") {
+            Flashy::message('Commentaire Ajouter avec succès');
+             return redirect()->route('accueil');
             }else{
-                Auth::logout();
                 session()->flash('messageErreur', '');
                 return redirect('/login');
             }
-        }
 
-        if (Auth::user()->type === "Admin") {
+       /* if (Auth::user()->type === "Admin") {
             if (Auth::user()->etat === "Activé") {
                 return redirect()->route('Professeur');
             }else{
@@ -34,7 +33,7 @@ class redirector
                 session()->flash('messageErreur', '');
                 return redirect('/login');
             }
-        }
+        }*/
         
     }
 }
